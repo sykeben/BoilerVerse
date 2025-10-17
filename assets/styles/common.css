@@ -1,0 +1,69 @@
+/* Don't touch this, you're tearing apart the fabric of reality! */
+
+/* Document Body */
+body {
+    background: black;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Selectable Elements */
+.allow-select {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+/* Custom Font: Coral Pixels */
+.coral-pixels {
+    font-family: "Coral Pixels", serif;
+    font-weight: 400;
+    font-style: normal;
+    filter: invert();
+}
+
+/* Custom Font: Jersey 10 */
+.jersey-10 {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Custom Font: Jersey 15 */
+.jersey-15 {
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Custom Font: Jersey 20 */
+.jersey-20 {
+    font-family: "Jersey 20", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Custom Font: Jersey 25 */
+.jersey-25 {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Custom Font: VT323 */
+.vt323 {
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Custom Font: Space Grotesk */
+.space-grotesk {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}

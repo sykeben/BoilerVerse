@@ -1,0 +1,59 @@
+/* Trying to recover from a system crash, aren't we? */
+
+/* Variables */
+:root {
+    --bg: #0200AC;
+    --fg: #A9A9A7;
+}
+
+/* Document Body */
+body {
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 24pt;
+}
+
+/* Header Text */
+.header {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+/* Glitch Animation */
+.glitch {
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 1px 0 red, -1px 0 cyan;
+    }
+
+    12.5% {
+        text-shadow: -1px -2px red, 1px 1px cyan;
+    }
+
+    25% {
+        text-shadow: -1px 1px red, 1px -2px cyan;
+    }
+
+    37.5% {
+        text-shadow: 1px 2px red, -1px -1px cyan;
+    }
+
+    50% {
+        text-shadow: 2px 0 red, -1px 0 cyan;
+    }
+
+    62.5% {
+        text-shadow: -1px 1px red, 1px -1px cyan;
+    }
+
+    75% {
+        text-shadow: -1px -1px red, 2px 1px cyan;
+    }
+
+    100% {
+        text-shadow: 1px 0 red, -1px 0 cyan;
+    }
+}

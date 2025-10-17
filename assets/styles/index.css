@@ -1,0 +1,60 @@
+/* Get out of here! */
+
+/* Document Body */
+body {
+    overflow: hidden;
+}
+
+/* Loading Container */
+#loading-container {
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.247), 0 0 10px rgba(170, 0, 170, 0.445), 0 0 20px rgba(153, 0, 153, 0.26);
+    letter-spacing: 2px;
+    animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.3;
+    }
+}
+
+/* Loading Text */
+#loading-text.glitch {
+    color: #f0f;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 0 cyan, -2px 0 red;
+    }
+
+    25% {
+        text-shadow: -2px -2px cyan, 2px 2px red;
+    }
+
+    50% {
+        text-shadow: 2px 2px cyan, -2px -2px red;
+    }
+
+    75% {
+        text-shadow: -2px 2px cyan, 2px -2px red;
+    }
+
+    100% {
+        text-shadow: 2px 0 cyan, -2px 0 red;
+    }
+}
