@@ -11,6 +11,14 @@ body {
     -ms-user-select: none;
 }
 
+/* HR Separator */
+hr {
+    border: none;
+    background: #686868;
+    opacity: 1;
+    height: 2px;
+}
+
 /* Selectable Elements */
 .allow-select {
     user-select: text;
