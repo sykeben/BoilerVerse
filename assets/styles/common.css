@@ -2,7 +2,9 @@
 
 /* Document Body */
 body {
+    font-size: 16pt;
     background: black;
+    color: #D0D0D0;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -19,7 +21,12 @@ body {
 
 /* Inversion Helper */
 .invert {
-    filter: invert(1);
+    filter: invert(1) brightness(1.25);
+}
+
+/* Squishing Helper */
+.squish {
+    line-height: 1;
 }
 
 /* Custom Font: Coral Pixels */
