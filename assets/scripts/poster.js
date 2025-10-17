@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputSubtitle2 = document.getElementById("input-subtitle2");
     const inputSubtitle3 = document.getElementById("input-subtitle3");
     const inputQRPage = document.getElementById("input-qrpage");
+    const inputFooter1 = document.getElementById("input-footer1");
+    const inputFooter2 = document.getElementById("input-footer2");
+    const inputPosterID = document.getElementById("input-posterid");
 
     // Get control buttons.
     const generateBtn = document.getElementById("generate-btn");
@@ -20,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageQRCode = document.getElementById("page-qrcode");
     const pageQRURL = document.getElementById("page-qrurl");
     const pageQRPage = document.getElementById("page-qrpage");
+    const pageFooter1 = document.getElementById("page-footer1");
+    const pageFooter2 = document.getElementById("page-footer2");
+    const pagePosterID = document.getElementById("page-posterid");
 
     // Initialize QR code.
     pageQRCode.innerHTML = "";
@@ -29,11 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
     generateBtn.addEventListener("click", () => {
 
         // Update text.
-        pageTitle.textContent = inputTitle.value || "";
-        pageSubtitle1.textContent = inputSubtitle1.value || "";
-        pageSubtitle2.textContent = inputSubtitle2.value || "";
-        pageSubtitle3.textContent = inputSubtitle3.value || "";
-        pageQRPage.textContent = inputQRPage.value || "bsod";
+        pageTitle.innerText = inputTitle.value || "";
+        pageSubtitle1.innerText = inputSubtitle1.value || "";
+        pageSubtitle2.innerText = inputSubtitle2.value || "";
+        pageSubtitle3.innerText = inputSubtitle3.value || "";
+        pageQRPage.innerText = inputQRPage.value || "bsod";
+        pageFooter1.innerText = inputFooter1.value || "";
+        pageFooter2.innerText = inputFooter2.value || "";
+        pagePosterID.innerText = inputPosterID.value || "nul";
 
         // Update QR code.
         pageQRCode.innerHTML = "";
