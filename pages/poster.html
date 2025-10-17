@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- This is for administrators only... -->
+<html lang="en">
+
+<head>
+
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BV Poster Gen</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Jersey+10&family=Jersey+15&family=Jersey+20&family=Jersey+25&family=Space+Grotesk:wght@300..700&family=VT323&display=swap">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/styles/common.css">
+    <link rel="stylesheet" href="../assets/styles/poster.css">
+
+</head>
+
+<body>
+
+    <!-- Generator Controls -->
+    <table class="controls no-print">
+
+        <!-- Title -->
+        <tr>
+            <td><label for="input-title">Title</label></td>
+            <td><input type="text" id="input-title" value="Press E to Interact" autocomplete="off"></td>
+        </tr>
+
+        <!-- Subtitle -->
+        <tr>
+            <td><label for="input-subtitle">Subtitle</label></td>
+            <td><input type="text" id="input-subtitle" value="Hidden quest nearby" autocomplete="off"></td>
+        </tr>
+
+        <!-- QR Page -->
+        <tr>
+            <td><label for="input-qrpage">QR Page</label></td>
+            <td><input type="text" id="input-qrpage" value="bsod" autocomplete="off"></td>
+        </tr>
+
+        <!-- Buttons -->
+        <tr>
+            <td></td>
+            <td>
+                <button id="generate-btn">Generate</button>
+                <button id="print-btn">Print</button>
+            </td>
+        </tr>
+
+    </table>
+
+    <!-- Separator -->
+    <hr class="no-print">
+
+    <!-- Printable Page -->
+    <div class="page vt323">
+
+        <!-- Logo -->
+        <p class="coral-pixels alt">
+            BoilerVerse
+        </p>
+
+        <!-- Title -->
+        <h1 id="page-title">
+            Press E to Interact
+        </h1>
+
+        <!-- Subtitle -->
+        <p id="page-subtitle">
+            Hidden quest nearby
+        </p>
+
+        <!-- QR Code -->
+        <div id="page-qrcode"></div>
+
+        <!-- QR Link -->
+        <p class="coral-pixels subalt" id="page-qrurl">
+            https://sykeben.github.io/BoilerVerse/?next=<span id="page-qrpage">bsod</span>
+        </p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/libraries/qrcode.js"></script>
+    <script src="../assets/scripts/poster.js"></script>
+
+</body>
+
+</html>
