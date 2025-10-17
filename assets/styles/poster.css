@@ -21,6 +21,7 @@ body {
     box-sizing: border-box;
     border: 1px solid black;
     position: relative;
+    filter: saturate(0);
 }
 
 .page h1 {
