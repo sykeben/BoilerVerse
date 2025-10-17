@@ -29,6 +29,28 @@ body {
     line-height: 1;
 }
 
+/* Ordered List */
+ol {
+    list-style-type: decimal;
+}
+
+/* Ordered Sublist */
+ol.sublist {
+    list-style-type: lower-alpha;
+    padding-bottom: 0;
+}
+
+/* Unordered List */
+ul {
+    list-style-type: disc;
+}
+
+/* Unordered Sublist */
+ul.sublist {
+    list-style-type: circle;
+    padding-bottom: 0;
+}
+
 /* Custom Font: Coral Pixels */
 .coral-pixels {
     font-family: "Coral Pixels", serif;
