@@ -8,6 +8,20 @@ body {
     color: black;
 }
 
+/* Controls */
+.controls tr.first td {
+    border-top: 1px solid black;
+    padding-top: 5px;
+}
+
+.controls tr.last td {
+    padding-bottom: 5px;
+}
+
+.controls tr input[type="text"] {
+    width: 24em;
+}
+
 /* Printable Page */
 .page {
     width: 8.5in;
@@ -31,7 +45,7 @@ body {
 }
 
 .page div {
-    margin: 10rem 0;
+    margin: 5rem 0;
     padding: 1rem;
     border: 7px solid black;
 }

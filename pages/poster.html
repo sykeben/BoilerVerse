@@ -36,37 +36,43 @@
     <table class="controls no-print">
 
         <!-- Title -->
-        <tr>
+        <tr class="last">
             <td><label for="input-title">Title</label></td>
             <td><input type="text" id="input-title" value="Press E to Interact" autocomplete="off"></td>
         </tr>
 
-        <!-- Subtitle 1 -->
-        <tr>
+        <!-- Subtitles -->
+        <tr class="first">
             <td><label for="input-subtitle1">Subtitle 1</label></td>
             <td><input type="text" id="input-subtitle1" value="Hidden quest nearby" autocomplete="off"></td>
         </tr>
-
-        <!-- Subtitle 2 -->
         <tr>
             <td><label for="input-subtitle2">Subtitle 2</label></td>
             <td><input type="text" id="input-subtitle2" value="" autocomplete="off"></td>
         </tr>
-
-        <!-- Subtitle 3 -->
-        <tr>
+        <tr class="last">
             <td><label for="input-subtitle3">Subtitle 3</label></td>
             <td><input type="text" id="input-subtitle3" value="" autocomplete="off"></td>
         </tr>
 
         <!-- QR Page -->
-        <tr>
+        <tr class="first last">
             <td><label for="input-qrpage">QR Page</label></td>
             <td><input type="text" id="input-qrpage" value="bsod" autocomplete="off"></td>
         </tr>
 
+        <!-- Footers -->
+        <tr class="first">
+            <td><label for="input-footer1">Footer 1</label></td>
+            <td><input type="text" id="input-footer1" value="BoilerVerse v2.5.3 (Public Beta)" autocomplete="off"></td>
+        </tr>
+        <tr class="last">
+            <td><label for="input-footer2">Footer 2</label></td>
+            <td><input type="text" id="input-footer2" value="Developed on campus. Literally." autocomplete="off"></td>
+        </tr>
+
         <!-- Buttons -->
-        <tr>
+        <tr class="first">
             <td></td>
             <td>
                 <button id="generate-btn">Generate</button>
@@ -100,9 +106,13 @@
         <!-- QR Code -->
         <div id="page-qrcode"></div>
 
-        <!-- QR Link -->
-        <p class="coral-pixels subalt" id="page-qrurl">
-            https://sykeben.github.io/BoilerVerse/?next=<span id="page-qrpage">bsod</span>
+        <!-- Footers -->
+        <p class="coral-pixels subalt">
+            <span id="page-qrurl">
+                https://sykeben.github.io/BoilerVerse/?next=<span id="page-qrpage">bsod</span>
+            </span><br>
+            <span id="page-footer1">BoilerVerse v2.5.3 (Public Beta)</span><br>
+            <span id="page-footer2">Developed on campus. Literally.</span><br>
         </p>
 
     </div>
