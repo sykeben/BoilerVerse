@@ -35,7 +35,11 @@ body {
     box-sizing: border-box;
     border: 1px solid black;
     position: relative;
-    filter: saturate(0);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-smooth: never;
+    image-rendering: pixelated;
+    text-rendering: optimizeSpeed;
 }
 
 .page h1 {
@@ -48,6 +52,12 @@ body {
     margin: 5rem 0;
     padding: 1rem;
     border: 7px solid black;
+}
+
+.page #page-qrcode img {
+    width: 256px;
+    height: 256px;
+    image-rendering: pixelated;
 }
 
 .page p {
@@ -67,9 +77,20 @@ body {
 
 /* Printed Styling */
 @media print {
+
+    @page {
+        size: 8.5in 11in;
+        margin: 0;
+    }
+
+    html,
     body {
+        width: 8.5in;
+        height: 11in;
         margin: 0;
         padding: 0;
+        background: white !important;
+        color: black !important;
     }
 
     .no-print {
