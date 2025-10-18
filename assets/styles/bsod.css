@@ -31,6 +31,13 @@ body {
     background: var(--fg);
     color: var(--bg);
     box-shadow: 0.5em 0.75em 0 0 var(--bs);
+    max-width: 90vw;
+    margin-left: -0.25em;
+    margin-top: -0.375em;
+}
+
+.custom-modal input {
+    max-width: 50vw;
 }
 
 /* Glitch Animation */
