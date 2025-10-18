@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Don't cheat! -->
+<!-- Obviously the games generate passwords locally, so I have no way to police this. -->
+<!-- Just like a board game, I rely on you (the player) to hold your end of the deal. -->
+<html lang="en">
+
+<head>
+
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BV Pass Test</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Jersey+10&family=Jersey+15&family=Jersey+20&family=Jersey+25&family=Space+Grotesk:wght@300..700&family=VT323&display=swap">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../assets/styles/common.css">
+    <link rel="stylesheet" href="../../assets/styles/admin/passtest.css">
+
+</head>
+
+<body>
+
+    <!-- Cheeky Message -->
+    <div>
+        You've unlocked a password tester!<br>
+        Don't use this to cheat, please.
+    </div>
+
+    <!-- Separator -->
+    <hr>
+
+    <!-- Encoder -->
+    <p><strong>Encode</strong></p>
+    <table class="controls">
+
+        <!-- Inputs -->
+        <tr>
+            <td><label for="encode-gameid">Game ID</label></td>
+            <td><select id="encode-gameid"></select></td>
+        </tr>
+        <tr>
+            <td><label for="encode-datatag">Data Tag</label></td>
+            <td><select id="encode-datatag"></select></td>
+        </tr>
+        <tr class="last">
+            <td><label for="encode-usersecret">User Secret</label></td>
+            <td><input type="text" id="encode-usersecret" class="mono" value="" autocomplete="off"></td>
+        </tr>
+
+        <!-- Outputs -->
+        <tr class="first">
+            <td><label for="encode-password">Password</label></td>
+            <td>
+                <input type="text" id="encode-password" class="mono" value="" autocomplete="off" readonly="true">
+            </td>
+        </tr>
+
+        <!-- Controls -->
+        <tr>
+            <td></td>
+            <td>
+                <button id="encode-update">Update</button>
+                <span id="encode-result" class="result">Ready.</span>
+            </td>
+        </tr>
+
+    </table>
+
+    <!-- Separator -->
+    <hr>
+
+    <!-- Decoder -->
+    <p><strong>Decode</strong></p>
+    <table class="controls">
+
+        <!-- Inputs -->
+        <tr>
+            <td><label for="decode-password">Password</label></td>
+            <td><input type="text" id="decode-password" class="mono" value="" autocomplete="off"></td>
+        </tr>
+        <tr class="last">
+            <td><label for="decode-usersecret">User Secret</label></td>
+            <td><input type="text" id="decode-usersecret" class="mono" value="" autocomplete="off"></td>
+        </tr>
+
+        <!-- Outputs -->
+        <tr class="first">
+            <td><label for="decode-gameid">Game ID</label></td>
+            <td><input type="text" id="decode-gameid" value="" autocomplete="off" readonly="true"></td>
+        </tr>
+        <tr>
+            <td><label for="decode-datatag">Data Tag</label></td>
+            <td><input type="text" id="decode-datatag" value="" autocomplete="off" readonly="true"></td>
+        </tr>
+
+        <!-- Controls -->
+        <tr>
+            <td></td>
+            <td>
+                <button id="decode-update">Update</button>
+                <span id="decode-result" class="result">Ready.</span>
+            </td>
+        </tr>
+
+    </table>
+
+    <!-- Scripts -->
+    <script src="../../assets/libraries/passwd.js"></script>
+    <script src="../../assets/scripts/admin/passtest.js"></script>
+
+</body>
+
+</html>
