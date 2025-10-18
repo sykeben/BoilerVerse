@@ -4,21 +4,8 @@
 
 // Password sets.
 const passwdSets = {
-    // FAKE GAMES/TAGS FOR TESTING ONLY!
-    "fake1": [
-        "test1.1",
-        "test1.2",
-        "test1.3"
-    ],
-    "fake2": [
-        "test2.1",
-        "test2.2",
-        "test2.3"
-    ],
-    "fake3": [
-        "test3.1",
-        "test3.2",
-        "test3.3"
+    "bsod": [
+        "easteregg"
     ]
 };
 

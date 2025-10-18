@@ -28,12 +28,12 @@
 <body class="vt323">
 
     <!-- Main Container -->
-    <div class="container text-center py-5">
+    <div id="main-container" class="container text-center py-5">
 
         <!-- Header -->
         <div class="row">
             <div class="col-12">
-                <span class="header glitch px-3 py-1">BoilerVerse</span>
+                <span id="main-header" class="header glitch px-3 py-1">BoilerVerse</span>
             </div>
         </div>
 
@@ -54,10 +54,44 @@
 
     </div>
 
+    <!-- Password Modal -->
+    <div id="pass-modal"
+        class="custom-modal squish position-absolute top-50 start-50 translate-middle px-3 py-2 d-none">
+
+        <!-- Titlebar -->
+        <div class="pe-5 mt-0 me-2 glitch"><strong>Password Get!</strong></div>
+        <div id="pass-x" class="position-absolute top-0 end-0 translate-middle-x antiheader mt-1 px-3 py-1">X</div>
+        <hr class="mt-0 pt-0">
+
+        <!-- Instructions -->
+        <p>
+            Enter a secret (6+ chars) &rarr; click Generate &rarr; write down your code.
+            Your secret + password = your save data. Don't lose it!
+        </p>
+        <hr>
+
+        <!-- Generator -->
+        <table>
+            <tr>
+                <td><input type="text" id="pass-secret" value="" placeholder="secret" autocomplete="off"></td>
+                <td><span id="pass-generate" class="antiheader px-3 py-1">Generate</span></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    Password:
+                    <input type="text" id="pass-output" value="" autocomplete="off" readonly="true">
+                </td>
+            </tr>
+        </table>
+        <hr class="mb-0 pb-0">
+
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="../assets/libraries/passwd.js"></script>
     <script src="../assets/scripts/bsod.js"></script>
 
 </body>

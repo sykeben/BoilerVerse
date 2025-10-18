@@ -4,6 +4,7 @@
 :root {
     --bg: #0200AC;
     --fg: #A9A9A7;
+    --bs: #0A0A0A;
 }
 
 /* Document Body */
@@ -17,6 +18,19 @@ body {
 .header {
     background: var(--fg);
     color: var(--bg);
+}
+
+/* Anti-header Text */
+.antiheader {
+    background: var(--bg);
+    color: var(--fg);
+}
+
+/* Custom Modal */
+.custom-modal {
+    background: var(--fg);
+    color: var(--bg);
+    box-shadow: 0.5em 0.75em 0 0 var(--bs);
 }
 
 /* Glitch Animation */
