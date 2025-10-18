@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Figure out where to send the user next.
     const params = new URLSearchParams(window.location.search);
     const rawNext = params.get("next") || "bsod";
-    const safeNext = rawNext.replace(/[^a-zA-Z0-9_-]/g, "");
+    const safeNext = rawNext.replace(/[^a-zA-Z0-9\-]/g, "").replace(/\-+/g, "/");
     const next = `pages/${safeNext}.html`;
 
     // Redirect after delay.
