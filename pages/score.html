@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- You're gonna brick it dude! -->
+<html lang="en" data-bs-theme="dark">
+
+<head>
+
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoilerScore</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Jersey+10&family=Jersey+15&family=Jersey+20&family=Jersey+25&family=Space+Grotesk:wght@300..700&family=VT323&display=swap">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/styles/common.css">
+
+</html>
+
+</head>
+
+<body class="vt323 px-3 py-2 text-center">
+
+    <!-- Title -->
+    <h1 class="display-1 coral-pixels invert">BoilerScore</h1>
+    <p class="squish mx-md-3 mx-lg-5">
+        Welcome back, adventurer. Your fate is being recalculated in hexadecimal.
+    </p>
+
+    <!-- Separator -->
+    <hr class="mx-0 mx-md-3 mx-lg-5">
+
+    <!-- Player Secret -->
+    <h2 class="coral-pixels invert">
+        <label for="input-secret">Player Secret</label>
+    </h2>
+    <input type="text" class="text-center" id="input-secret" value="" autocomplete="off">
+
+    <!-- Separator -->
+    <hr class="mx-0 mx-md-3 mx-lg-5">
+
+    <!-- Passwords -->
+    <h2 class="coral-pixels invert">
+        <label for="input-passwds">Passwords</label>
+    </h2>
+    <textarea id="input-passwds" class="squish resize-vertical text-center" rows="10" cols="30"></textarea>
+
+    <!-- Separator -->
+    <hr class="mx-0 mx-md-3 mx-lg-5">
+
+    <!-- Score -->
+    <h2 class="coral-pixels">
+        <span id="update-button" class="antibody px-2 clickable">Score</span>
+    </h2>
+    <p class="squish pb-0 mb-2"><em id="output-status">Ready.</em></p>
+    <div class="container py-0 my-0">
+        <div class="row justify-content-center py-0 my-0">
+            <table class="col-auto squish table-dark table-sm">
+                <tbody id="output-parts"></tbody>
+            </table>
+        </div>
+    </div>
+    <p class="squish mt-2 mb-2"><strong><em id="output-score"></em></strong></p>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../assets/libraries/passwd.js"></script>
+    <script src="../assets/scripts/score.js"></script>
+
+</body>
+
+</html>

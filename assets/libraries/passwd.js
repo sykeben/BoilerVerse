@@ -4,9 +4,9 @@
 
 // Password sets.
 const passwdSets = {
-    "bsod": [
-        "easteregg"
-    ]
+    "bsod": {
+        "easteregg": [10, "explore the BSOD"]
+    }
 };
 
 // Player secret storage.
@@ -54,7 +54,7 @@ function generatePassword(gameID, dataTag, secret, updateStoredSecret = true) {
 
     // Verify parameters.
     if (!gameID || !passwdSets.hasOwnProperty(gameID)) return makeFail("gid");
-    if (!dataTag || !passwdSets[gameID].includes(dataTag)) return makeFail("tag");
+    if (!dataTag || !passwdSets[gameID].hasOwnProperty(dataTag)) return makeFail("tag");
     if (!secret || secret.length < 6) return makeFail("usr");
 
     // Update stored secret.
@@ -69,29 +69,31 @@ function generatePassword(gameID, dataTag, secret, updateStoredSecret = true) {
 function extractPassword(password, secret, chkGameID = false, chkDataTag = false) {
 
     // Result maker.
-    function makeResult(okay, gameID, dataTag) {
+    function makeResult(okay, gameID, dataTag, points, description) {
         return {
             okay: okay,
             gameID: gameID,
-            dataTag: dataTag
+            dataTag: dataTag,
+            points: points,
+            description: description
         };
     }
 
     // Fail maker.
     function makeFail(why) {
-        return makeResult(false, `{bad:${why}}`, `{bad:${why}}`);
+        return makeResult(false, `{bad:${why}}`, `{bad:${why}}`, null, null);
     }
 
     // Pass maker.
-    function makePass(gameID, dataTag) {
-        return makeResult(true, gameID, dataTag);
+    function makePass(gameID, dataTag, points, description) {
+        return makeResult(true, gameID, dataTag, points, description);
     }
 
     // Verify parameters.
     if (!password || password.length != 15) return makeFail("pwd");
     if (!secret || secret.length < 6) return makeFail("usr");
     if (chkGameID && !passwdSets.hasOwnProperty(chkGameID)) return makeFail("gid");
-    if (chkDataTag && !passwdSets[chkGameID].includes(chkDataTag)) return makeFail("tag");
+    if (chkDataTag && !passwdSets[chkGameID].hasOwnProperty(chkDataTag)) return makeFail("tag");
     if (!chkGameID && chkDataTag) return makeFail("gid");
 
     // Check password.
@@ -99,15 +101,16 @@ function extractPassword(password, secret, chkGameID = false, chkDataTag = false
 
         // Check from a fully-known set.
         if (customHash(chkGameID, chkDataTag, secret) == password) {
-            return makePass(chkGameID, chkDataTag);
+            const [pts, desc] = passwdSets[chkGameID][chkDataTag];
+            return makePass(chkGameID, chkDataTag, pts, desc);
         }
 
     } else if (chkGameID && !chkDataTag) {
 
         // Check from a semi-known set.
-        for (const tag of passwdSets[chkGameID]) {
+        for (const [tag, [pts, desc]] of Object.entries(passwdSets[chkGameID])) {
             if (customHash(chkGameID, tag, secret) == password) {
-                return makePass(chkGameID, tag);
+                return makePass(chkGameID, tag, pts, desc);
             }
         }
 
@@ -115,9 +118,9 @@ function extractPassword(password, secret, chkGameID = false, chkDataTag = false
 
         // Check from an unknown set.
         for (const [game, tags] of Object.entries(passwdSets)) {
-            for (const tag of tags) {
+            for (const [tag, [pts, desc]] of Object.entries(tags)) {
                 if (customHash(game, tag, secret) == password) {
-                    return makePass(game, tag);
+                    return makePass(game, tag, pts, desc);
                 }
             }
         }
