@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     header.addEventListener('click', () => {
         if (modalUp) return;
         codeCount--;
-        passSecret.value = "";
+        passSecret.value = retrieveSecret();
         passOutput.value = "";
         passModal.classList.remove('d-none');
         modalUp = true;

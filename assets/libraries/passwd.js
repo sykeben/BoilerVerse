@@ -9,6 +9,16 @@ const passwdSets = {
     ]
 };
 
+// Player secret storage.
+function storeSecret(secret = null) {
+    window.localStorage.setItem("bv-secret", secret || "");
+}
+
+// Player secret retrieval.
+function retrieveSecret() {
+    return window.localStorage.getItem("bv-secret") || "";
+}
+
 // Custom hasher.
 function customHash(gameID, dataTag, secret) {
 
@@ -35,7 +45,7 @@ function customHash(gameID, dataTag, secret) {
 }
 
 // Password generator.
-function generatePassword(gameID, dataTag, secret) {
+function generatePassword(gameID, dataTag, secret, updateStoredSecret = true) {
 
     // Fail maker.
     function makeFail(why) {
@@ -46,6 +56,9 @@ function generatePassword(gameID, dataTag, secret) {
     if (!gameID || !passwdSets.hasOwnProperty(gameID)) return makeFail("gid");
     if (!dataTag || !passwdSets[gameID].includes(dataTag)) return makeFail("tag");
     if (!secret || secret.length < 6) return makeFail("usr");
+
+    // Update stored secret.
+    if (updateStoredSecret) storeSecret(secret);
 
     // Generate hash.
     return customHash(gameID, dataTag, secret);
