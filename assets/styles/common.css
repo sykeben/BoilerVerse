@@ -32,6 +32,17 @@ hr {
     -ms-user-select: text;
 }
 
+/* Antibody Class */
+.antibody {
+    background: #D0D0D0;
+    color: black;
+}
+
+/* Clickable */
+.clickable {
+    cursor: pointer;
+}
+
 /* Inversion Helper */
 .invert {
     filter: invert(1) brightness(1.25);
@@ -62,6 +73,26 @@ ul {
 ul.sublist {
     list-style-type: circle;
     padding-bottom: 0;
+}
+
+/* Resize Both */
+.resize-both {
+    resize: both;
+}
+
+/* Resize Vertical */
+.resize-vert {
+    resize: vertical;
+}
+
+/* Resize Horizontal */
+.resize-horiz {
+    resize: horizontal;
+}
+
+/* Resize None */
+.resize-none {
+    resize: none;
 }
 
 /* Custom Font: Coral Pixels */
