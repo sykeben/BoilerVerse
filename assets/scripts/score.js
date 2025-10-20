@@ -15,10 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Parts updater.
-    function updateParts(newGame = null, newTag = null, newDesc = null, newValue = null) {
-        if (newGame && newTag && newDesc && newValue) {
+    function updateParts(newPass = null, newGame = null, newTag = null, newDesc = null, newValue = null) {
+        if (newPass && newGame && newTag && newDesc && newValue) {
             let newPart = "";
             newPart += '<tr>\n';
+            newPart += `    <td>${newPass}</td>\n`;
             newPart += `    <td>[${newGame}]</td>\n`;
             newPart += `    <td>{${newTag}}</td>\n`;
             newPart += `    <td>${newDesc}</td>\n`;
@@ -67,8 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Extract passwords.
         let score = 0;
+        let done_passwds = [];
         let results = [];
         for (const passwd of passwds) {
+
 
             // Extract password information.
             const result = extractPassword(passwd, secret);
@@ -93,15 +96,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+            // Check for duplicates.
+            if (done_passwds.includes(passwd)) {
+                updateStatus(`Duplicate password: ${passwd}`);
+                return;
+            }
+            done_passwds[done_passwds.length] = passwd;
+
             // Append.
-            results[results.length] = result;
+            results[results.length] = [passwd, result];
             score += result.points;
 
         }
 
         // Finish.
         updateStatus("Done!");
-        results.forEach((result) => updateParts(result.gameID, result.dataTag, result.description, result.points));
+        results.forEach((item) => {
+            const [passwd, result] = item;
+            updateParts(passwd, result.gameID, result.dataTag, result.description, result.points);
+        });
         updateScore(score);
 
     });
