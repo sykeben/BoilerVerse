@@ -48,6 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pageQRCode.innerHTML = "";
         new QRCode(pageQRCode, pageQRURL.innerText);
 
+        // Update title.
+        document.title = pagePosterID.innerText;
+
     });
 
     // Set up print button.
