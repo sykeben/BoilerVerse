@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         encodeResult.innerText = "Encoding...";
 
         // Generate password.
-        const password = generatePassword(gameID, dataTag, secret);
+        const password = generatePassword(gameID, dataTag, secret, false, false);
         switch (password) {
             case "{bad:gid}":
                 encodeResult.innerText = "Bad game ID (invalid)!";

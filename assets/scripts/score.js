@@ -40,8 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Initialize player secret.
+    // Initialize player secret/passwords.
     inputSecret.value = retrieveSecret();
+    inputPasswds.value = retrievePasswords().join('\n');
 
     // Bind update click.
     updateButton.addEventListener("click", () => {
@@ -57,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
             updateStatus("User secret is too short (<6 chars).");
             return;
         }
-        if (retrieveSecret() != secret) storeSecret(secret);
 
         // Verify passwords.
         const passwds = (inputPasswds.value || "").split(/[\n]+/);
@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let done_passwds = [];
         let results = [];
         for (const passwd of passwds) {
-
 
             // Extract password information.
             const result = extractPassword(passwd, secret);
@@ -109,7 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        // Finish.
+        // Update storage.
+        if (retrieveSecret() != secret) storeSecret(secret);
+        if (retrievePasswords().join('\n') != done_passwds.join('\n')) storeAllPasswords(done_passwds);
+
+        // Update UI.
         updateStatus("Done!");
         results.forEach((item) => {
             const [passwd, result] = item;

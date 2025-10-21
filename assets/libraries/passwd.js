@@ -9,14 +9,41 @@ const passwdSets = {
     }
 };
 
-// Player secret storage.
-function storeSecret(secret = null) {
-    window.localStorage.setItem("bv-secret", secret || "");
-}
-
 // Player secret retrieval.
 function retrieveSecret() {
     return window.localStorage.getItem("bv-secret") || "";
+}
+
+// Player secret storage.
+function storeSecret(secret = null) {
+    if (secret) {
+        window.localStorage.setItem("bv-secret", secret);
+    } else {
+        window.localStorage.removeItem("bv-secret");
+    }
+}
+
+// Password list retrieval.
+function retrievePasswords() {
+    return window.localStorage.getItem("bv-passwds")?.split('\n') || [];
+}
+
+// Password list storage.
+function storeAllPasswords(passwords = null) {
+    if (passwords) {
+        window.localStorage.setItem("bv-passwds", passwords.join('\n'));
+    } else {
+        window.localStorage.removeItem("bv-passwds");
+    }
+}
+
+// Password list append.
+function storeNewPassword(password) {
+    const passwords = retrievePasswords();
+    if (!passwords.includes(password)) {
+        passwords.push(password);
+        storeAllPasswords(passwords);
+    }
 }
 
 // Custom hasher.
@@ -45,7 +72,7 @@ function customHash(gameID, dataTag, secret) {
 }
 
 // Password generator.
-function generatePassword(gameID, dataTag, secret, updateStoredSecret = true) {
+function generatePassword(gameID, dataTag, secret, updateStoredSecret = true, updateStoredPasswords = true) {
 
     // Fail maker.
     function makeFail(why) {
@@ -57,11 +84,15 @@ function generatePassword(gameID, dataTag, secret, updateStoredSecret = true) {
     if (!dataTag || !passwdSets[gameID].hasOwnProperty(dataTag)) return makeFail("tag");
     if (!secret || secret.length < 6) return makeFail("usr");
 
-    // Update stored secret.
-    if (updateStoredSecret) storeSecret(secret);
-
     // Generate hash.
-    return customHash(gameID, dataTag, secret);
+    const hash = customHash(gameID, dataTag, secret);
+
+    // Update stored secret/passwords.
+    if (updateStoredSecret) storeSecret(secret);
+    if (updateStoredPasswords) storeNewPassword(hash);
+
+    // Return.
+    return hash;
 
 }
 
