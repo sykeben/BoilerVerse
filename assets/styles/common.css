@@ -101,8 +101,14 @@ ul.sublist {
 
 /* Image Pixelated */
 .img-pixelated {
-    image-rendering: pixelated;
-    shape-rendering: crispEdges;
+    image-rendering: pixelated !important;
+    shape-rendering: crispEdges !important;
+}
+
+/* Image Smoothed */
+.img-smoothed {
+    image-rendering: crisp-edges !important;
+    shape-rendering: geometricPrecision !important;
 }
 
 /* Image Fit */
