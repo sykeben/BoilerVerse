@@ -1,10 +1,17 @@
 /* Don't touch this, you're tearing apart the fabric of reality! */
 
+/* Root Vars */
+:root {
+    --root-bg: black;
+    --root-fg: #D0D0D0;
+    --root-mg: #686868;
+}
+
 /* Document Body */
 body {
     font-size: 16pt;
-    background: black;
-    color: #D0D0D0;
+    background: var(--root-bg);
+    color: var(--root-fg);
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -16,14 +23,14 @@ body {
 /* HR Separator */
 hr {
     border: none;
-    background: #686868;
+    background: var(--root-mg);
     opacity: 1;
     height: 2px;
 }
 
 /* Table Dark Fix */
 .table-dark {
-    color: #D0D0D0;
+    color: var(--root-fg);
 }
 
 /* Selectable Elements */
@@ -38,8 +45,8 @@ hr {
 
 /* Antibody Class */
 .antibody {
-    background: #D0D0D0;
-    color: black;
+    background: var(--root-fg);
+    color: var(--root-bg);
 }
 
 /* Clickable */
