@@ -18,12 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateParts(newPass = null, newGame = null, newTag = null, newDesc = null, newValue = null) {
         if (newPass && newGame && newTag && newDesc && newValue) {
             let newPart = "";
-            newPart += '<tr>\n';
-            newPart += `    <td>${newPass}</td>\n`;
-            newPart += `    <td>[${newGame}]</td>\n`;
-            newPart += `    <td>{${newTag}}</td>\n`;
-            newPart += `    <td>${newDesc}</td>\n`;
-            newPart += `    <td>(${newValue >= 0 ? '+' : ''}${newValue})</td>\n`;
+            newPart += '<tr class="border-bottom">\n';
+            newPart += `    <td>[${newGame}]<br>${newPass}</td>\n`;
+            newPart += `    <td>{${newTag}}<br>${newDesc}</td>\n`;
+            newPart += `    <td class="display-5">${newValue >= 0 ? '+' : ''}${newValue}</td>\n`;
             newPart += `</tr>`;
             outputParts.innerHTML += newPart;
         } else {
