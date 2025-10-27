@@ -1,0 +1,292 @@
+/* HEY! What are you doing here? */
+
+/* Map Container */
+#floors {
+    transition: filter 0.25s ease-in-out;
+    filter: none;
+}
+
+#floors.dim {
+    filter: blur(0.5rem) brightness(75%) saturate(75%);
+    pointer-events: none;
+}
+
+/* Floor Maps */
+.pmu-map {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.pmu-map.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pmu-map.fade-out {
+    opacity: 0;
+    transform: scale(1.02);
+}
+
+/* Map Icons/Tooltips */
+.pmu-i {
+    transition: filter 0.25s ease-in-out;
+    filter: none;
+}
+
+.pmu-i:hover {
+    filter: invert(1);
+}
+
+.pmu-i-tooltip {
+    --bs-tooltip-color: var(--root-bg);
+    --bs-tooltip-bg: var(--root-fg);
+    --bs-tooltip-padding-x: 0.375em;
+    --bs-tooltip-padding-y: 0.075em;
+    --bs-tooltip-border-radius: 0;
+    --bs-tooltip-opacity: 100%;
+    --bs-tooltip-arrow-width: 0.5em;
+    font-family: unset;
+    font-size: 12pt;
+    font-weight: bold;
+    box-shadow: 0 0 0.125em 0.075em var(--root-bg);
+}
+
+/* General Overlay */
+.overlay {
+    pointer-events: fill;
+    max-width: 100vw;
+    max-height: 100vh;
+    white-space: nowrap;
+    overflow-x: visible;
+    overflow-y: visible;
+    opacity: 50%;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.overlay.dim {
+    opacity: 0 !important;
+}
+
+.overlay:hover {
+    opacity: 12.5%;
+}
+
+.overlay-change-anim {
+    animation: overlayFlash 0.75s ease-out forwards;
+}
+
+@keyframes overlayFlash {
+    0% {
+        opacity: 82.5%;
+    }
+
+    50% {
+        opacity: 82.5%;
+    }
+
+    100% {
+        opacity: 50%;
+    }
+}
+
+/* Area Overlay/Animations */
+#area-overlay {
+    pointer-events: none;
+    transition: none;
+}
+
+.area-change-anim {
+    animation: areaFlash 1.25s ease-in-out forwards;
+}
+
+@keyframes areaFlash {
+    0% {
+        opacity: 0%;
+        letter-spacing: 0.325em;
+    }
+
+    40% {
+        opacity: 100%;
+        letter-spacing: normal;
+    }
+
+    70% {
+        opacity: 100%;
+        letter-spacing: normal;
+    }
+
+    100% {
+        opacity: 0%;
+        letter-spacing: 0.325em;
+    }
+}
+
+/* Drop Overlay/Animations */
+#drop-overlay {
+    pointer-events: none;
+    transition: none;
+}
+
+.drop-change-anim {
+    animation: dropFlash 2.5s ease-in-out forwards;
+}
+
+.drop-change-anim > img {
+    display: inline-block;
+    transform: scale(1) rotate(0);
+    filter: blur(0);
+    animation: inventoryIconPulse 1s ease-in-out 1.5s 1 normal forwards;
+}
+
+@keyframes dropFlash {
+    0% {
+        opacity: 0%;
+        letter-spacing: 0.325em;
+    }
+
+    20% {
+        opacity: 100%;
+        letter-spacing: normal;
+    }
+
+    90% {
+        opacity: 100%;
+        letter-spacing: normal;
+    }
+
+    100% {
+        opacity: 0%;
+        letter-spacing: 0.325em;
+    }
+}
+
+/* Generic Dialog */
+.dialog {
+    background: var(--root-fg);
+    color: var(--root-bg);
+    box-shadow: 0.5em 0.75em 0 0 var(--root-mg);
+    min-width: 60vw;
+    max-width: 90vw;
+    max-height: 90vh;
+    margin-left: -0.25em;
+    margin-top: -0.375em;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-x, .dialog-btn {
+    background: var(--root-mg);
+    color: white;
+}
+
+.dialog-content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex: 1 1 auto;
+}
+
+.dialog-sep {
+    height: 0 !important;
+    border-width: 1px;
+    border-style: dotted none none none !important;
+    border-color: var(--root-mg);
+}
+
+.dialog input {
+    max-width: 50vw;
+}
+
+/* Inventory Icon */
+.inventory-icon {
+    max-width: 5em;
+    max-height: 5em;
+}
+
+/* Inventory Icon Pulse */
+.inventory-icon-pulse {
+    display: inline-block;
+    transform: scale(1) rotate(0);
+    filter: blur(0);
+    animation: inventoryIconPulse 0.5s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes inventoryIconPulse {
+    25% {
+        transform: scale(1.125) rotate(-12.5deg);
+        filter: blur(0.025em);
+    }
+
+    50% {
+        transform: scale(1.25) rotate(unset);
+        filter: blur(0);
+    }
+
+    75% {
+        transform: scale(1.125) rotate(12.5deg);
+        filter: blur(0.025em);
+    }
+}
+
+/* Inventory Icon Hues */
+.inventory-icon.f-hue-90 {
+    filter: hue-rotate(90deg);
+}
+
+.inventory-icon.f-hue-180 {
+    filter: hue-rotate(180deg);
+}
+
+.inventory-icon.f-hue-270 {
+    filter: hue-rotate(270deg);
+}
+
+.inventory-icon.f-hue-anim {
+    filter: hue-rotate(0);
+    animation: fHueAnim 2.5s linear 0s infinite normal both;
+}
+
+@keyframes fHueAnim {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Inventory Icon Invert */
+.inventory-icon.f-invert {
+    filter: invert(1);
+}
+
+/* Inventory Icon Shimmer */
+.inventory-icon.f-shimmer {
+    mask: linear-gradient(-60deg, #000 45%, #0005, #000 55%) right/350% 100%;
+    animation: fShimmer 2.5s infinite;
+}
+
+@keyframes fShimmer {
+    100% {
+        mask-position: left;
+    }
+}
+
+/* Inventory Titles */
+.inventory-title {
+    letter-spacing: -0.05em;
+}
+
+/* Inventory Exchange */
+.inventory-exchange {
+    color: var(--root-mg);
+}
+
+/* Inventory Trade */
+.inventory-trade {
+    border: 1px solid transparent;
+    background: transparent;
+    transition: border 0.25s ease-in-out, background 0.25s ease-in-out;
+}
+
+.inventory-trade:hover {
+    border: 1px solid var(--root-mg);
+    background: rgba(255, 255, 255, 50%);
+}

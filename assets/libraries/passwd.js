@@ -6,6 +6,9 @@
 const passwdSets = {
     "bsod": {
         "easteregg": [10, "explore the BSOD"]
+    },
+    "pmyou": {
+        "mentor": [20, "return the mentor's key"]
     }
 };
 
